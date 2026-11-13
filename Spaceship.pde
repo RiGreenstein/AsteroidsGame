@@ -27,8 +27,17 @@ class Spaceship extends Floater
     
     xCorners = new int[]{-40, -20, 20, 40, 20, -20, -40, -35};
     yCorners = new int[]{-30, -15, -15, 0, 15, 15, 30, 0};
-    originalX = xCorners.clone();
-    originalY = yCorners.clone();
+    
+    originalX = new int[xCorners.length];
+    originalY = new int[yCorners.length];
+    
+    for (int i = 0; i < xCorners.length; i++) {
+      originalX[i] = xCorners[i];
+    }
+    
+    for (int i = 0; i < yCorners.length; i++) {
+      originalY[i] = yCorners[i];
+    }
   }
   
   public double getXSpeed() {
