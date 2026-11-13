@@ -9,7 +9,7 @@ class Spaceship extends Floater
   
   protected int[] originalX, originalY;
   
-  protected java.util.ArrayList<PVector[]> tailHistory = new java.util.ArrayList<PVector[]>();
+  protected ArrayList<PVector[]> tailHistory = new ArrayList<PVector[]>();
 
   protected double lastTailX, lastTailY;
   protected int lastTailStage = -1;
