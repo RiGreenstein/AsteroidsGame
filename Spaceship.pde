@@ -82,7 +82,7 @@ class Spaceship extends Floater
       closestBorderY = targetY>=400 ? 799 : 0;
       targetCornerX = 799-closestBorderX;
       targetCornerY = 799-closestBorderY;
-      targetRotation = Math.toDegrees(Math.atan2(targetCornerY - myCenterY, targetCornerX - myCenterX));
+      targetRotation = (Math.PI/180)*(Math.atan2(targetCornerY - myCenterY, targetCornerX - myCenterX));
       targetRotation = ((targetRotation % 360) + 540)%360 - 180;
       
       println(targetRotation);
@@ -168,7 +168,7 @@ class Spaceship extends Floater
   }
   
   private PVector wingPosition(int corner) {
-    double angle = Math.toRadians(myPointDirection);
+    double angle = myPointDirection*(Math.PI/180);
     double cos = Math.cos(angle);
     double sin = Math.sin(angle);
   
@@ -222,7 +222,7 @@ class Spaceship extends Floater
         myXspeed = 0;
         myYspeed = 0;
         
-        myPointDirection = Math.toDegrees(Math.atan2(targetY - myCenterY, targetX - myCenterX));
+        myPointDirection = (Math.PI/180)*(Math.atan2(targetY - myCenterY, targetX - myCenterX));
         
         double dx = targetX - myCenterX;
         double dy = targetY - myCenterY;
