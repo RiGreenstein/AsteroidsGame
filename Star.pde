@@ -1,7 +1,7 @@
 class Star //note that this class does NOT extend Floater
 {
-  float myX, myY, h;
-  int myColor;
+  protected float myX, myY, h;
+  protected int myColor;
   
   Star(float x, float y) {
     myX = x;
