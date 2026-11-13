@@ -121,7 +121,12 @@ public void draw()
   }
   
   bobby.drawHyperTail();
+
+  pushStyle();
+  strokeWeight(1);
+  strokeJoin(MITER);
   bobby.show();
+  popStyle();
   popMatrix();
 }
 
