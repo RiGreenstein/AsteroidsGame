@@ -41,6 +41,18 @@ class Asteroid extends Floater {
   public double getCenterY() {
     return myCenterY;
   }
+  
+  public int getCorners() {
+    return corners;
+  }
+  
+  public int[] getXCorners() {
+    return xCorners;
+  }
+  
+  public int[] getYCorners() {
+    return yCorners;
+  }
 
   public void show ()  //Draws the floater at the current positis ion
   {
