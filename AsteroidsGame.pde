@@ -1,11 +1,16 @@
-//your variable declarations here
+import java.util.ArrayList;
+
 
 Spaceship bobby;
 Star[] tungtungs = new Star[500];
 
+ArrayList<Asteroid> patapims = new ArrayList<Asteroid>();
+
 boolean leftPressed = false;
 boolean rightPressed = false;
 boolean upPressed = false;
+
+int asteroids = 8;
 
 double turnSpeed = 5;
 double deceleration = 0.93;
@@ -19,11 +24,16 @@ float maxStarStretch = 20;
 public void setup() 
 {
   size(800,800);
-  bobby = new Spaceship(color(255), 400, 400, 0, 10);
+  bobby = new Spaceship(color(220), 400, 400, 0, 10);
   
   for (int i = 0; i < tungtungs.length; i++) {
     Star tralalero = new Star((float)(Math.random()*800), (float)(Math.random()*800));
     tungtungs[i] = tralalero;
+  }
+  
+  for (int i = 0; i < asteroids; i++) {
+    Asteroid ballerinaCappuchina = new Asteroid((Math.random()*800), (Math.random()*800));
+    patapims.add(ballerinaCappuchina);
   }
 }
 public void draw() 
@@ -118,6 +128,30 @@ public void draw()
   
   for (int i = 0; i < tungtungs.length; i++) {
     tungtungs[i].show(starStretchX, starStretchY);
+  }
+  
+  for (int i = patapims.size() - 1; i >= 0; i--) {
+    Asteroid liriloli = patapims.get(i);
+    
+    pushMatrix();
+    liriloli.show();
+    popMatrix();
+    
+    liriloli.move();
+    
+    if (bobby.getHyperStage() == -1) {
+      double dist = Math.hypot(
+        liriloli.getCenterX() - bobby.getCenterX(), 
+        liriloli.getCenterY() - bobby.getCenterY()
+      );
+      
+      if (dist <= 45) {
+        patapims.remove(i);
+        
+        Asteroid frutifroola = new Asteroid((Math.random()*800), (Math.random()*800));
+        patapims.add(frutifroola);
+      }
+    }
   }
   
   bobby.drawHyperTail();
