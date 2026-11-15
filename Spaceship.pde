@@ -62,6 +62,22 @@ class Spaceship extends Floater {
   public int getHyperStage() {
     return hyperStage;
   }
+  
+  public double getCenterX() {
+    return myCenterX;
+  }
+  
+  public double getCenterY() {
+    return myCenterY;
+  }
+  
+  public int[] getXCorners() {
+    return xCorners;
+  }
+  
+  public int[] getYCorners() {
+    return yCorners;
+  }
 
   public void cappedAccelerate(double amount) {
     double radians = myPointDirection * Math.PI / 180.0;
